@@ -1,15 +1,20 @@
 package usecase
 
-import "go-api-rest/model"
+import (
+	"go-api-rest/model"
+	"go-api-rest/repository"
+)
 
 type ProductUsecase struct {
-	//repositori
+	repository repository.ProductRepository
 }
 
-func NewProductUsecase() ProductUsecase {
-	return ProductUsecase{}
+func NewProductUsecase(repo repository.ProductRepository) ProductUsecase {
+	return ProductUsecase{
+		repository: repo,
+	}
 }
 
-func (p *ProductUsecase) GetProducts() ([]model.Product, error){
-	return []model.Product{}, nil
+func (pu *ProductUsecase) GetProducts() ([]model.Product, error){
+	return pu.repository.GetProducts()
 }
