@@ -17,7 +17,7 @@ func main() {
 	if(err != nil){
 		panic(err)
 	}
-
+	
 	//camada repository
 	ProductRepository := repository.NewProductRepository(dbConnection)
 
